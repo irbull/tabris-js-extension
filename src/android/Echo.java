@@ -7,6 +7,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.eclipsesource.j2v8.V8;
+
 /**
  * This class echoes a string called from JavaScript.
  */
@@ -16,6 +18,14 @@ public class Echo extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("echo")) {
             String message = args.getString(0);
+            V8 v8 = V8.createRuntime();
+            int result = 0;
+            try {
+              result = v8.executeIntegerScript(1+2);
+              message = message + result;
+            } finally {
+              v8.release();
+            }
             this.echo(message, callbackContext);
             return true;
         }
