@@ -30,7 +30,7 @@ public class Echo extends CordovaPlugin {
 
    public static final String TYPE = "tabris.Swipe2";
 
-   public SwipeOperator( TabrisActivity activity ) {
+   public SwipeOperator2( TabrisActivity activity ) {
      super( activity );
    }
 
