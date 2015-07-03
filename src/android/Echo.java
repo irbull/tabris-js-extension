@@ -34,9 +34,9 @@ import static com.eclipsesource.tabris.client.core.util.ParamCheck.notNull;
  */
 public class Echo extends CordovaPlugin {
 
-  public static String PROP_TEXT_CHECKED = "textChecked";
-  public static String PROP_TEXT_UNCHECKED = "textUnchecked";
-  public static String PROP_CHECKED = "checked";
+  public static final String PROP_TEXT_CHECKED = "textChecked";
+  public static final String PROP_TEXT_UNCHECKED = "textUnchecked";
+  public static final String PROP_CHECKED = "checked";
 
   public static class SwitchPropertyHandler<T extends Switch> extends ButtonPropertyHandler<T> {
 
