@@ -21,7 +21,7 @@ public class Echo extends CordovaPlugin {
             V8 v8 = V8.createV8Runtime();
             int result = 0;
             try {
-              result = v8.executeIntegerScript(1+2);
+              result = v8.executeIntegerScript("1+2");
               message = message + result;
             } finally {
               v8.release();
