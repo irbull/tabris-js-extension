@@ -18,7 +18,6 @@ import com.eclipsesource.tabris.client.core.model.Properties;
 import com.eclipsesource.tabris.client.core.operation.CreateOperation;
 import com.eclipsesource.tabris.client.core.operation.ListenOperation;
 
-import static com.eclipsesource.tabris.client.core.ProtocolConstants.EVENT_CHECKED;
 import static com.eclipsesource.tabris.client.core.util.ValidationUtil.*;
 
 import com.eclipsesource.tabris.android.internal.toolkit.operator.AbstractAndroidOperator;
@@ -131,9 +130,9 @@ public class Echo extends CordovaPlugin {
       super.listen( operation );
       validateListenOperation( operation );
       Properties properties = operation.getProperties();
-      if( properties.hasProperty( EVENT_CHECKED ) ) {
+      if( properties.hasProperty( "checked") ) {
         View view = findViewByTarget( operation );
-        if( properties.getBoolean( EVENT_CHECKED ) ) {
+        if( properties.getBoolean( "checked") ) {
           view.setOnClickListener( new SwitchClickListener( getActivity() ) );
         } else {
           view.setOnClickListener( null );
@@ -152,7 +151,7 @@ public class Echo extends CordovaPlugin {
       @Override
       public void onClick( View view ) {
         RemoteObject remoteObject = activity.getRemoteObject( view );
-        remoteObject.notify( EVENT_CHECKED, EVENT_CHECKED, ( ( Switch )view ).isChecked() );
+        remoteObject.notify( "checked", "checked", ( ( Switch )view ).isChecked() );
       }
 
     }
