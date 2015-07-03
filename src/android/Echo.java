@@ -136,11 +136,15 @@ public class Echo extends CordovaPlugin {
       super.listen( operation );
       validateListenOperation( operation );
       Properties properties = operation.getProperties();
+      System.out.println("***********************: LISTEN [1]");
       if( properties.hasProperty( "checked") ) {
+        System.out.println("***********************: LISTEN [2]");
         View view = findViewByTarget( operation );
         if( properties.getBoolean( "checked") ) {
+          System.out.println("***********************: LISTEN [3]");
           view.setOnClickListener( new SwitchClickListener( getActivity() ) );
         } else {
+          System.out.println("***********************: LISTEN [4]");
           view.setOnClickListener( null );
         }
       }
