@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.eclipsesource.j2v8.V8;
+import com.eclipsesource.v8.V8;
 
 /**
  * This class echoes a string called from JavaScript.
