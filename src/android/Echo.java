@@ -25,11 +25,79 @@ import static com.eclipsesource.tabris.client.core.util.ValidationUtil.*;
 import com.eclipsesource.tabris.android.internal.toolkit.operator.AbstractAndroidOperator;
 import com.eclipsesource.tabris.client.core.OperatorRegistry;
 
+import com.eclipsesource.tabris.android.internal.toolkit.operator.*;
+
 
 /**
  * This class echoes a string called from JavaScript.
  */
 public class Echo extends CordovaPlugin {
+
+  public static class SwitchPropertyHandler<T extends Switch> extends ButtonPropertyHandler<T> {
+
+    public SwitchPropertyHandler( TabrisActivity activity ) {
+      super( activity );
+    }
+
+    @Override
+    public void set( T switchButton, Properties properties ) {
+      super.set( switchButton, properties );
+      notNull( switchButton, Switch.class );
+      notNull( properties, Properties.class );
+      for( String key : properties.getAll().keySet() ) {
+        switch( key ) {
+          case PROP_CHECKED:
+            setChecked( switchButton, properties );
+          case PROP_TEXT_CHECKED:
+            setTextChecked( switchButton, properties );
+            break;
+          case PROP_TEXT_UNCHECKED:
+            setTextUnchecked( switchButton, properties );
+            break;
+        }
+      }
+    }
+
+    private void setTextChecked( T switchButton, Properties properties ) {
+      switchButton.setTextOn( properties.getString( PROP_TEXT_CHECKED ) );
+    }
+
+    private void setTextUnchecked( T switchButton, Properties properties ) {
+      switchButton.setTextOff( properties.getString( PROP_TEXT_UNCHECKED ) );
+    }
+
+    private void setChecked( T switchButton, Properties properties ) {
+      switchButton.setChecked( properties.getBoolean( PROP_CHECKED ) );
+    }
+
+    @Override
+    public Object get( T switchButton, String property ) {
+      notNull( switchButton, Switch.class );
+      notNull( property, "property" );
+      switch( property ) {
+        case PROP_CHECKED:
+          return getChecked( switchButton );
+        case PROP_TEXT_CHECKED:
+          return getTextChecked( switchButton );
+        case PROP_TEXT_UNCHECKED:
+          return getTextUnchecked( switchButton );
+      }
+      return super.get( switchButton, property );
+    }
+
+    private Object getTextChecked( T switchButton ) {
+      return switchButton.getTextOn();
+    }
+
+    private Object getTextUnchecked( T switchButton ) {
+      return switchButton.getTextOff();
+    }
+
+    private Object getChecked( T switchButton ) {
+      return switchButton.isChecked();
+    }
+
+  }
 
   public static class SwitchOperator2 extends ButtonOperator {
 
