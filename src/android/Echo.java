@@ -20,6 +20,8 @@ import com.eclipsesource.tabris.client.core.operation.SetOperation;
 import static com.eclipsesource.tabris.client.core.ProtocolConstants.*;
 import static com.eclipsesource.tabris.client.core.util.ValidationUtil.*;
 
+import com.eclipsesource.tabris.android.internal.toolkit.operator.AbstractAndroidOperator;
+
 /**
  * This class echoes a string called from JavaScript.
  */
