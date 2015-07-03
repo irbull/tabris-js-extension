@@ -156,6 +156,7 @@ public class Echo extends CordovaPlugin {
 
       @Override
       public void onClick( View view ) {
+        System.out.println("***********************: ON CLICK");
         RemoteObject remoteObject = activity.getRemoteObject( view );
         remoteObject.notify( "checked", "checked", ( ( Switch )view ).isChecked() );
       }
