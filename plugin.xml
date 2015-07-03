@@ -14,5 +14,6 @@
                 <param name="android-package" value="org.apache.cordova.example.Echo"/>
             </feature>
         </config-file>
+        <source-file src="src/android/Echo.java" target-dir="src/org/apache/cordova/Example" />
     </platform>
 </plugin>
