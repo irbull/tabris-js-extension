@@ -128,6 +128,7 @@ public class Echo extends CordovaPlugin {
     @Override
     public void create( CreateOperation operation ) {
       validateCreateOperation( operation );
+      System.out.println("***********************: CREATE [1]");
       initiateNewView( operation, new Switch( getActivity() ) );
     }
 
