@@ -21,6 +21,8 @@ import static com.eclipsesource.tabris.client.core.ProtocolConstants.*;
 import static com.eclipsesource.tabris.client.core.util.ValidationUtil.*;
 
 import com.eclipsesource.tabris.android.internal.toolkit.operator.AbstractAndroidOperator;
+import com.eclipsesource.tabris.client.core.OperatorRegistry;
+
 
 /**
  * This class echoes a string called from JavaScript.
@@ -106,16 +108,10 @@ public class Echo extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("echo")) {
-            String message = args.getString(0);
-            V8 v8 = V8.createV8Runtime();
-            boolean result = false;
-            try {
-              //result = v8.executeIntScript("1+2");
-              result = cordova.getActivity() instanceof TabrisActivity;
-              message = message + result;
-            } finally {
-              v8.release();
-            }
+            TabrisActivity activity = (TabrisActivity) cordova.getActivity();
+            SwipeOperator2 operator = new  SwipeOperator2(activity);
+            OperatorRegistry operatorRegistry = activity.getWidgetToolkit().getOperatorRegistry();
+            operatorRegistry.register( operator.getType(), operator );
             this.echo(message, callbackContext);
             return true;
         }
