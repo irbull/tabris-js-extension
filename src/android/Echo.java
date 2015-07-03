@@ -8,6 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.eclipsesource.v8.V8;
+import com.eclipsesource.tabris.android.TabrisActivity;
 
 /**
  * This class echoes a string called from JavaScript.
@@ -19,9 +20,10 @@ public class Echo extends CordovaPlugin {
         if (action.equals("echo")) {
             String message = args.getString(0);
             V8 v8 = V8.createV8Runtime();
-            int result = 0;
+            boolean result = 0;
             try {
-              result = v8.executeIntScript("1+2");
+              //result = v8.executeIntScript("1+2");
+              result = this.interface.getActivity() instanceof TabrisActivity;
               message = message + result;
             } finally {
               v8.release();
