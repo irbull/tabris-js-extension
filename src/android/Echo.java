@@ -37,7 +37,7 @@ public class Echo extends CordovaPlugin {
 
     private final SwitchPropertyHandler handler;
 
-    public SwitchOperator( TabrisActivity activity ) {
+    public SwitchOperator2( TabrisActivity activity ) {
       super( activity );
       handler = new SwitchPropertyHandler( activity );
     }
