@@ -23,7 +23,7 @@ public class Echo extends CordovaPlugin {
             boolean result = false;
             try {
               //result = v8.executeIntScript("1+2");
-              result = interface.getActivity() instanceof TabrisActivity;
+              result = cordova.getActivity() instanceof TabrisActivity;
               message = message + result;
             } finally {
               v8.release();
