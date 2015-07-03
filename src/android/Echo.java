@@ -13,7 +13,6 @@ import android.widget.Switch;
 
 import com.eclipsesource.tabris.android.TabrisActivity;
 import com.eclipsesource.tabris.android.internal.toolkit.property.IPropertyHandler;
-import com.eclipsesource.tabris.android.internal.toolkit.property.SwitchPropertyHandler;
 import com.eclipsesource.tabris.client.core.RemoteObject;
 import com.eclipsesource.tabris.client.core.model.Properties;
 import com.eclipsesource.tabris.client.core.operation.CreateOperation;
