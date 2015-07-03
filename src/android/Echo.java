@@ -20,10 +20,10 @@ public class Echo extends CordovaPlugin {
         if (action.equals("echo")) {
             String message = args.getString(0);
             V8 v8 = V8.createV8Runtime();
-            boolean result = 0;
+            boolean result = false;
             try {
               //result = v8.executeIntScript("1+2");
-              result = this.interface.getActivity() instanceof TabrisActivity;
+              result = interface.getActivity() instanceof TabrisActivity;
               message = message + result;
             } finally {
               v8.release();
