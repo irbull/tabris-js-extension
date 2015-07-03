@@ -25,6 +25,7 @@ import com.eclipsesource.tabris.android.internal.toolkit.operator.AbstractAndroi
 import com.eclipsesource.tabris.client.core.OperatorRegistry;
 
 import com.eclipsesource.tabris.android.internal.toolkit.operator.*;
+import com.eclipsesource.tabris.android.internal.toolkit.property.*;
 
 
 /**
