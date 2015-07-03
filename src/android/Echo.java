@@ -112,7 +112,7 @@ public class Echo extends CordovaPlugin {
             SwipeOperator2 operator = new  SwipeOperator2(activity);
             OperatorRegistry operatorRegistry = activity.getWidgetToolkit().getOperatorRegistry();
             operatorRegistry.register( operator.getType(), operator );
-            this.echo("done", callbackContext);
+            this.echo(operator.getType(), callbackContext);
             return true;
         }
         return false;
