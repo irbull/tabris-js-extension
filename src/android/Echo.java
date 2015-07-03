@@ -18,7 +18,7 @@ public class Echo extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("echo")) {
             String message = args.getString(0);
-            V8 v8 = V8.createRuntime();
+            V8 v8 = V8.createV8Runtime();
             int result = 0;
             try {
               result = v8.executeIntegerScript(1+2);
